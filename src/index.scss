@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, * {
+  font-family: 'Quicksand', sans-serif !important;
+}
+body {
+  overflow-x: hidden;
+  margin: auto;
+  background-color: theme('colors.neutral.950');
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* custom class */
+.my-container {
+  margin: auto;
+  min-height: 100vh;
+  width: 100vw;
+} 
+// 
+.active-category .active-itemv {
+  background-color: white !important;
+  height: 240px !important;
+  .active-title {
+    color: theme('colors.neutral.900') !important;
+  }
+  .active-subtitle {
+    color: #000000 !important;
+    opacity: 1 !important;
+  }
+}
+.scroll--none::-webkit-scrollbar {
+  display: none;
+}
