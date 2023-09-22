@@ -1,14 +1,14 @@
 # My solution for test of Thudo Multimedia
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Solution for navigation element not use support libary
+## Solution for navigation element not use support libary
 I create a ref list to store elements
 With the class 'active-category' marking the list currently being navigated, and the class 'active-item' marking the focused item.
 I do not use navigation support libraries to express my ideas
-# Some libary support spatial navigation
+## Some libary support spatial navigation
 In addition, there are also some libraries that support spatial navigation.
 Excample [Spatial-navigation](https://github.com/NoriginMedia/Norigin-Spatial-Navigation)
 

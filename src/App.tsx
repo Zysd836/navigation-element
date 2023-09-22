@@ -189,8 +189,9 @@ function App() {
 
   useEffect(() => {
     const handlePressNavigation = (e: KeyboardEvent) => {
-      e.preventDefault()
-
+      if (Object.values(CodeArrowKey).includes(e.code as any)) {
+        e.preventDefault()
+      }
       const checkActiveCategory = () => {
         const activeCategory = listItemRef?.current?.find(
           (item: HTMLElement) => item?.className?.includes(activeClass.ACTIVE_CATEGORIES),
