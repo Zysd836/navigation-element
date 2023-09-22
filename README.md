@@ -1,5 +1,9 @@
 # My solution for test of Thudo Multimedia
-
+Frontend Developer - Nguyen Viet Hoang
+Link live demo: [Demo](https://zysd836.github.io/navigation-element/).
+## Guild
+- Press ArrowKeyBoard to navigation element
+- Press Enter to toast title of element
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
