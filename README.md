@@ -1,5 +1,5 @@
 # My solution for test of Thudo Multimedia
-Frontend Developer - Nguyen Viet Hoang
+Frontend Developer - Nguyen Viet Hoang.\
 Link live demo: [Demo](https://zysd836.github.io/navigation-element/).
 ## Guild
 - Press ArrowKeyBoard to navigation element
