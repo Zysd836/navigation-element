@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { StoreContext } from './context/Store'
 import Category from './component/Category'
 import { CodeArrowKey, activeClass } from './utils/constant'
 import SkeletonLoading from './component/SkeletonLoading'
+import { toast } from 'react-toastify'
 
 interface CurrentDataFocusableT {
   categoryIdx: number
@@ -19,6 +20,12 @@ function App() {
 
   const listItemRef = useRef<HTMLElement[]>([])
 
+  const checkedItem = useMemo(() => {
+    return data?.data?.items
+      ?.find((item, idx) => idx === currentDataFocusable?.categoryIdx)
+      ?.items?.find((item1, idx1) => idx1 === currentDataFocusable?.activeItemIdx)
+  }, [currentDataFocusable?.activeItemIdx, currentDataFocusable?.categoryIdx, data?.data?.items])
+
   // push all element category to list
   const pushListItemRef = useCallback((e: HTMLElement | null) => {
     if (e && !(listItemRef as any)?.current?.includes(e)) (listItemRef as any)?.current?.push(e)
@@ -34,7 +41,6 @@ function App() {
     }
     // logic when to end current category
     if (activeItemIdx === currentCardElements?.length - 1) {
-
       allCategoryElement?.[categoryIdx + 1]?.classList?.add(activeClass.ACTIVE_CATEGORIES)
       allCategoryElement?.[categoryIdx]?.classList?.remove(activeClass?.ACTIVE_CATEGORIES)
       window?.scrollTo({
@@ -177,6 +183,10 @@ function App() {
       })
   }, [currentDataFocusable])
 
+  const handlePressEnter = useCallback(() => {
+    toast(checkedItem?.title)
+  }, [checkedItem])
+
   useEffect(() => {
     const handlePressNavigation = (e: KeyboardEvent) => {
       e.preventDefault()
@@ -217,12 +227,15 @@ function App() {
         case CodeArrowKey.ARROW_RIGHT:
           handlePressArrowRight()
           break
+        case CodeArrowKey.ENTER:
+          handlePressEnter()
+          break
         default:
       }
     }
     document.addEventListener('keydown', handlePressNavigation)
     return () => document.removeEventListener('keydown', handlePressNavigation)
-  }, [handlePressArrowDown, handlePressArrowLeft, handlePressArrowRight, handlePressArrowUp])
+  }, [handlePressArrowDown, handlePressArrowLeft, handlePressArrowRight, handlePressArrowUp, handlePressEnter])
   return (
     <div className="my-container px-6">
       {loading ? (

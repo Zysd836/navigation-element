@@ -4,12 +4,15 @@ import './index.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { StoreProvider } from './context/Store'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <StoreProvider>
       <App />
+      <ToastContainer theme="dark" />
     </StoreProvider>
   </React.StrictMode>,
 )
